@@ -12,11 +12,11 @@ import product.GenericDAO;
 
 public class ShowProductsServlet extends HttpServlet {
 	
-	GenericDAO<productDTO> productDAO;
-	
-	public ProductDetailsServlet() {
-		productDAO = new ProductDAOImpl();
-	}
+//	GenericDAO<productDTO> productDAO;
+//	
+//	public ProductDetailsServlet() {
+//		productDAO = new ProductDAOImpl();
+//	}
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 						throws ServletException, IOException {
@@ -26,8 +26,8 @@ public class ShowProductsServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		out.println("<form action='' method='POST'>");
-		out.println("<label>Enter Product ID: <input type='text' name='product-id></input></label>");
-		out.println("<input type='submit'>Get Details</input>");
+		out.println("<label>Enter Product ID: <input type='text' name='product-id'></input></label>");
+		out.println("<button type='submit'>Get Details</button>");
 		out.println("</form>");
 	}
 
