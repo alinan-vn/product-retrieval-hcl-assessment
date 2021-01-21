@@ -8,15 +8,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import product.GenericDAO;
+import org.hibernate.Session;
+
+import hibernate.HibernateUtils;
+//import product.GenericDAO;
+import product.Product;
 
 public class ShowProductsServlet extends HttpServlet {
+		
+	Session session;
 	
-//	GenericDAO<productDTO> productDAO;
-//	
-//	public ProductDetailsServlet() {
-//		productDAO = new ProductDAOImpl();
-//	}
+	public void init() {
+		
+		session = HibernateUtils.buildSessionFactory().openSession();
+	}
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 						throws ServletException, IOException {
@@ -34,17 +39,19 @@ public class ShowProductsServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 						throws ServletException, IOException {
 		
+		
+		
 		String productId = request.getParameter("product-id");
 		PrintWriter out = response.getWriter();
 		
-		// Use the productDAO . . get the productDTO
-		// show the details
-		// or if not found
-		// show an error message
-		
-		out.println("showing product details - or an issue if not found");
-		
-	}
-	
-	
+		Product productEntity = session.get(
+				Product.class,
+				Long.parseLong(productId)
+		);
+		if (productEntity != null) {
+			out.println("Found Product! Name: " + productEntity.getName() + ", Type: " + productEntity.getType() + ", Price: " + productEntity.getPrice());
+		} else {
+			out.println("No Product found for id: " + productId);
+		}
+	}	
 }
