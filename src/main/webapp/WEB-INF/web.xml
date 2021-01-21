@@ -1,3 +1,11 @@
 <web-app>
-	<display-name>Products</display-name>
+	<display-name>Widget Store</display-name>
+	<servlet>
+        <servlet-name>products-servlet</servlet-name>
+        <servlet-class>widgetstore.web.ShowProductsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>products-servlet</servlet-name>
+        <url-pattern>/products</url-pattern>
+    </servlet-mapping>
 </web-app>

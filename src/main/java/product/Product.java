@@ -3,6 +3,8 @@ package product;
 import javax.persistence.*;
 import java.io.Serializable;
 
+@Table(name = "product")
+@Entity
 public class Product implements Serializable {
 
 	@Id

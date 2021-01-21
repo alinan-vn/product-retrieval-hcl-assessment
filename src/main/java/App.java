@@ -1,5 +1,4 @@
 import product.Product;
-import robot.RobotEntity;
 
 import java.util.Arrays;
 import java.util.List;
@@ -30,15 +29,11 @@ public class App {
 	
 	public static void main(String[] args) {
 		
-//		Random rand = new Random();
-//		String randomName = names.get(rand.nextInt(names.size()));
-//		System.out.println(randomName);
-		
 		try {
-//			hibernateSession = HibernateUtils
-//					.buildSessionFactory()
-//					.openSession();
-//			hibernateSession.beginTransaction();
+			hibernateSession = HibernateUtils
+					.buildSessionFactory()
+					.openSession();
+			hibernateSession.beginTransaction();
 			
 			// Insert some products
 			for (int i = 0; i <= 10; i++) {
