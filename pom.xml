@@ -59,11 +59,6 @@
                 <configuration>
                     <warName>products</warName>
                     <warSourceDirectory>src/main/webapp</warSourceDirectory>
-                    <webResources>
-                        <resource>
-                            <directory>web-assets</directory>
-                        </resource>
-                    </webResources>
                 </configuration>
             </plugin>
         </plugins>
